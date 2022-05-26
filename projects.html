@@ -32,86 +32,90 @@
                 <button class="avatar"><span class="user-initial">C</span></button>
             </div>
         </div>
-        <div class="projects-hero">
-            <div class="hero-background">
-                <div class="hero-left">
-                    <div class="hero-main">
-                        <h1 class="projects-header">Run your projects with confidence</h1>
-                        <p class="projects-subheader">Make better decisions by knowing how your jobs are doing</p>
-                        <span class="howto-link">
-                            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="pon-help-link pon-video-help-link Icon-inline-e8db4be">
-                                <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm0 18a8 8 0 118-8 8.009 8.009 0 01-8 8z"></path>
-                                <path d="M11.6 8.2A1 1 0 0010 9v6a1 1 0 001.6.8l4-3a.999.999 0 000-1.6l-4-3z"></path>
-                            </svg>
-                            <a href="*">See how it works</a>
-                        </span>
-                        <ul class="bullet-list">
-                            <li>
-                                <span class="item">Profitability in one place</span>
-                                <span class="item-description">Organize your project finances with a clear view of profits</span>
-                            </li>
-                            <li>
-                                <span class="item">Keep track of labors costs</span>
-                                <span class="item-description">See where your team is spending time and how it affects your profit margins</span>
-                            </li>
-                            <li>
-                                <span class="item">Eliminate the guesswork</span>
-                                <span class="item-description">Understand which projects make money and where you should focus your efforts</span>
-                            </li>
-                        </ul>
-                        <div class="button-wrapper">
-                            <button id="startNewProject" class="primary">
-                                <span class="button-text">Start a project</span>
-                            </button>
+        <div id="projectDefaultView">
+            <div class="projects-hero">
+                <div class="hero-background">
+                    <div class="hero-left">
+                        <div class="hero-main">
+                            <h1 class="projects-header">Run your projects with confidence</h1>
+                            <p class="projects-subheader">Make better decisions by knowing how your jobs are doing</p>
+                            <span class="howto-link">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="pon-help-link pon-video-help-link Icon-inline-e8db4be">
+                                    <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm0 18a8 8 0 118-8 8.009 8.009 0 01-8 8z"></path>
+                                    <path d="M11.6 8.2A1 1 0 0010 9v6a1 1 0 001.6.8l4-3a.999.999 0 000-1.6l-4-3z"></path>
+                                </svg>
+                                <a href="*">See how it works</a>
+                            </span>
+                            <ul class="bullet-list">
+                                <li>
+                                    <span class="item">Profitability in one place</span>
+                                    <span class="item-description">Organize your project finances with a clear view of profits</span>
+                                </li>
+                                <li>
+                                    <span class="item">Keep track of labors costs</span>
+                                    <span class="item-description">See where your team is spending time and how it affects your profit margins</span>
+                                </li>
+                                <li>
+                                    <span class="item">Eliminate the guesswork</span>
+                                    <span class="item-description">Understand which projects make money and where you should focus your efforts</span>
+                                </li>
+                            </ul>
+                            <div class="button-wrapper">
+                                <button id="startNewProject" class="primary">
+                                    <span class="button-text">Start a project</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="resources">
+                            <p class="semibold resources-title">TIPS & RESOURCES</p>
+                            <p class="resources-link"><a>Get your project labor costs in real time</a></p>
+                            <p class="resources-link"><a>Track income cost and profitability by project</a></p>
+                            <p class="resources-link"><a>What are pay rates, cost rates & billable rates</a></p>
+                            <p class="resources-link"><a>See more</a></p>
                         </div>
                     </div>
-                    <div class="resources">
-                        <p class="semibold resources-title">TIPS & RESOURCES</p>
-                        <p class="resources-link"><a>Get your project labor costs in real time</a></p>
-                        <p class="resources-link"><a>Track income cost and profitability by project</a></p>
-                        <p class="resources-link"><a>What are pay rates, cost rates & billable rates</a></p>
-                        <p class="resources-link"><a>See more</a></p>
+                    <div class="hero-right">
+                        <img src="./projects-img.png" />
                     </div>
                 </div>
-                <div class="hero-right">
-                    <img src="./projects-img.png" />
+            </div>
+            <div id="newProjectTabUnderlay" class="tab-underlay hidden"></div>
+            <div id="newProjectTab" class="new-project-tab hidden">
+                <div class="new-project-form">
+                    <div id="closeProjectTab" class="exit"> &#10005;</div>
+                    <h3>New project</h3>
+                    <div class="form-field">
+                        <!-- TODO: Error triggers, tooltip -->
+                        <label for="project-name">
+                            <p class="semibold">Project name *</p>
+                        </label>
+                        <span data-text="A project that's going places needs a name" class="tooltip">
+                            <input type="text" id="projectName" name="projectName" placeholder="What's the project?" value="" required />
+                        </span>
+                    </div>
+                    <div class="form-field">
+                        <label for="customer">
+                            <p class="semibold">Customer *</p>
+                        </label>
+                        <!-- <input type="text" id="customer" placeholder="Who's the project for?" list="customerSelection" />
+                    <datalist id="customerSelection"></datalist> -->
+                        <span data-text="Every project needs a customer" class="tooltip">
+                            <select id="customerSelection" class="customer-list" data-placeholder="Who's the project for?">
+                                <option></option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="form-field">
+                        <label for="notes">
+                            <p class="semibold">Notes</p>
+                        </label>
+                        <textarea id="notes" name="notes" placeholder="Add details you want to remember" value="" required></textarea>
+                    </div>
                 </div>
+                <div class="footer"><button id="saveProject" class="primary"><span class="button-text">Save</span></button></div>
             </div>
         </div>
-        <div id="newProjectTabUnderlay" class="tab-underlay hidden"></div>
-        <div id="newProjectTab" class="new-project-tab hidden">
-            <div class="new-project-form">
-                <div id="closeProjectTab" class="exit"> &#10005;</div>
-                <h3>New project</h3>
-                <div class="form-field">
-                    <!-- TODO: Error triggers, tooltip -->
-                    <label for="project-name">
-                        <p class="semibold">Project name *</p>
-                    </label>
-                    <span data-text="A project that's going places needs a name" class="tooltip">
-                        <input type="text" id="projectName" name="projectName" placeholder="What's the project?" value="" required />
-                    </span>
-                </div>
-                <div class="form-field">
-                    <label for="customer">
-                        <p class="semibold">Customer *</p>
-                    </label>
-                    <!-- <input type="text" id="customer" placeholder="Who's the project for?" list="customerSelection" />
-                    <datalist id="customerSelection"></datalist> -->
-                    <span data-text="Every project needs a customer" class="tooltip">
-                        <select id="customerSelection" class="customer-list" data-placeholder="Who's the project for?">
-                            <option></option>
-                        </select>
-                    </span>
-                </div>
-                <div class="form-field">
-                    <label for="notes">
-                        <p class="semibold">Notes</p>
-                    </label>
-                    <textarea id="notes" name="notes" placeholder="Add details you want to remember" value="" required></textarea>
-                </div>
-            </div>
-            <div class="footer"><button id="saveProject" class="primary"><span class="button-text">Save</span></button></div>
+        <div class="projects-view">
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>

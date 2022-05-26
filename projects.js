@@ -9,21 +9,24 @@ $('#closeProjectTab').on('click', function() {
 });
 
 $('#saveProject').on('click', function() {
-    var projectName = $('input[id="projectName"]').val();
-    var customer = $('.select2-selection__rendered').html();
-    console.log(projectName, customer);
+    var $newProjectTitle = $('input[id="projectName"]').val();
+    var $newProjectCustomer = $('.select2-selection__rendered').html();
+    $('#projectDefaultView').remove();
+    var $submittedProject = $("<div class='project-header'><p class='semibold'>" + $newProjectTitle + "</p><a>" + $newProjectCustomer + "</a></div>");
+    $submittedProject.appendTo('.projects-view');
 });
 
 $(document).ready(function() {
     $(':input[id="saveProject"]').prop('disabled', true);
     $('input[id="projectName"]').keyup(function() {
+        console.log($('.select2-selection__rendered').attr('title'));
         if ($(this).val() != '' && $('.select2-selection__rendered').attr('title') != "Who's the project for?") {
             $(':input[id="saveProject"]').prop('disabled', false);
         } else {
             $(':input[id="saveProject"]').prop('disabled', true);
         }
     });
-    $('.select2-search input').keyup(function() {
+    $('#customerSelection').on('select2:select', function() {
         if ($('input[id="projectName"]').val() != '' && $('.select2-selection__rendered').attr('title') != "Who's the project for?") {
             $(':input[id="saveProject"]').prop('disabled', false);
         } else {
@@ -59,7 +62,7 @@ $.each(customerList, function(val, text) {
     );
 });
 
-$(document).on('keyup', '.select2-search__field', function(e) {
+$(document).on('keyup', '.select2-search__field', function() {
     $('.select2-results li').each(function() {
         console.log($(this).text());
         if (Object.values(customerList).indexOf($(this).text()) === -1) {
