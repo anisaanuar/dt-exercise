@@ -47,6 +47,7 @@ p {
 
 .page-container {
     width: calc(100% - 200px);
+    height: 100%;
     display: inline-block;
     position: absolute;
 }
@@ -363,9 +364,9 @@ button.primary {
                 border-color: #2ca01c;
             }
 
-            &:required:invalid {
-                border-color: #c00000;
-            }
+            // &:required:invalid {
+            //     border-color: #c00000;
+            // }
         }
 
     }
@@ -484,3 +485,21 @@ button.primary {
 }
 
 /* todos: red on invalid, update tooltip to be light greyish, make the project page */
+
+.projects-view {
+    background-color: #f4f5f8;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+    a {
+        font-weight: 500;
+        line-height: 1.43;
+        color: #0077c5;
+        cursor: pointer;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}

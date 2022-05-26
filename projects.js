@@ -12,7 +12,8 @@ $('#saveProject').on('click', function() {
     var $newProjectTitle = $('input[id="projectName"]').val();
     var $newProjectCustomer = $('.select2-selection__rendered').html();
     $('#projectDefaultView').remove();
-    var $submittedProject = $("<div class='project-header'><p class='semibold'>" + $newProjectTitle + "</p><a>" + $newProjectCustomer + "</a></div>");
+    var $submittedProject = $("<div class='project-header'><h3 class='semibold'>" + $newProjectTitle + "</h3><p><a>" + $newProjectCustomer + "</a></p></div>");
+    $("#projectId").removeClass("hidden");
     $submittedProject.appendTo('.projects-view');
 });
 
